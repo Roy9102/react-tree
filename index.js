@@ -4,7 +4,7 @@
 * @Description:        
 * @Email:              chenxuezhong@360.cn
 * @Last Modified by:   Roy
-* @Last Modified time: 2016-02-01 11:43:31
+* @Last Modified time: 2016-02-02 18:53:57
 */
 
 'use strict';
@@ -26,16 +26,19 @@ const treeConfig = {
     editable:        true,
     deletable:       true,
     multiSelect:     true,
-    initChecked:     [2154,2153],
+    initChecked:     [100024,2153],
     groupIcon:       'icon-sitemap',
     childIcon:       'icon-desktop_mac',
     onActive(node){
         console.log(node.id)
     },
-    beforeDelete(node){
+    onDelete(node){
         console.log(node.id)
     },
     onEdit(node){
+        console.log(node.id)
+    },
+    afterInster(node){
         console.log(node.id)
     }
 };

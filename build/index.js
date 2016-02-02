@@ -60,7 +60,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	* @Description:        
 	* @Email:              chenxuezhong@360.cn
 	* @Last Modified by:   Roy
-	* @Last Modified time: 2016-02-01 11:43:31
+	* @Last Modified time: 2016-02-02 18:53:57
 	*/
 	
 	'use strict';
@@ -95,16 +95,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	    editable: true,
 	    deletable: true,
 	    multiSelect: true,
-	    initChecked: [2154, 2153],
+	    initChecked: [100024, 2153],
 	    groupIcon: 'icon-sitemap',
 	    childIcon: 'icon-desktop_mac',
 	    onActive: function onActive(node) {
 	        console.log(node.id);
 	    },
-	    beforeDelete: function beforeDelete(node) {
+	    onDelete: function onDelete(node) {
 	        console.log(node.id);
 	    },
 	    onEdit: function onEdit(node) {
+	        console.log(node.id);
+	    },
+	    afterInster: function afterInster(node) {
 	        console.log(node.id);
 	    }
 	};
