@@ -4,7 +4,7 @@
   "description": "react tree",
   "main": "index.js",
   "scripts": {
-    "dev" : "WEBPACK_DEV=true webpack --color --progress --watch",
+    "dev": "WEBPACK_DEV=true webpack --color --progress --watch",
     "build": "WEBPACK_DEV=false webpack -p",
     "test": "test"
   },
@@ -29,6 +29,7 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "fontmin-loader": "0.0.1",
+    "json-loader": "^0.5.4",
     "less": "^2.5.3",
     "less-loader": "^2.2.1",
     "node-sass": "^3.4.2",
