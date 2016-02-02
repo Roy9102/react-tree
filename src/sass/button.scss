@@ -1,0 +1,28 @@
+
+$btnBg: #26a69a;
+$hoverBg:#2bbbad;
+.button{
+	text-decoration:none;
+	background-color: $btnBg;
+	display: inline-block;
+	border:0;
+	overflow: hidden;
+	cursor:pointer;
+	vertical-align: middle;
+	will-change: opacity, transform;
+    transition: all .3s ease-out;
+    color:      #FFFFFF;
+    text-align: center;
+    outline:    0;
+  	border-radius: 2px;
+  	&:hover{
+  		background-color: $hoverBg;
+  		box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15)
+  	}
+}
+
+.button.btn-large{
+	height: 36px;
+	line-height: 36px;
+	padding: 0 2rem;
+}

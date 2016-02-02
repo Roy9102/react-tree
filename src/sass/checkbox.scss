@@ -1,0 +1,27 @@
+$ativeColor:   #0081C2;
+$halfColor:    #0081C2;
+$defaultColor: #666666;
+$defaultSize:  16px;
+
+
+.checkbox{
+	position: relative;
+	vertical-align: top;
+	font-size:defaultSize;
+	color: $defaultColor;
+	&.icon-check_box_outline_blank{
+		color: $defaultColor;
+	}
+	&.icon-indeterminate_check_box{
+		color:$halfColor;
+	}
+	&.icon-check_box{
+		color:$ativeColor;	
+	}
+	.hidden{
+		opacity: 0;
+		left: 0;
+		top: 0;
+		position: absolute;
+	}
+}

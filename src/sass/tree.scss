@@ -1,0 +1,113 @@
+@import "common";
+
+$IconSize:        16px;
+$fontSize:        14px;
+$PADDING:         6px;
+$fontColor:       #666666;
+$ActiveBgColor:   #0081C2;
+$ActivefontColor: #FFFFFF;
+$HoverBgColor:    #0081C2;
+$HoverfontColor:  #FFFFFF;
+$background:      #4C6686;
+
+.slide-enter{
+	opacity: 0;
+	max-height:0;
+	transition: all 1s ease-in;
+	&.slide-enter-active {
+		opacity: 1;
+		max-height:666px;
+	}
+}
+.slide-leave{
+	opacity: 1;
+	max-height:45px;
+	&.slide-leave-active {
+		opacity:0;
+		max-height:0;
+		transition: all 0.4s ease-in;
+	}
+}
+
+
+
+#tree{
+	margin:100px auto;
+	width:240px;
+	.react_tree{
+		font-size:    $fontSize;
+		color:        $fontColor;
+		border:       1px solid #ccc;
+		.tree_title{
+			padding-left:     $PADDING;
+			font-size:        18px;
+			line-height:      40px;
+			vertical-align:   middle;
+			background-color: $LIGHTGRAY;
+			>i{
+				vertical-align: -2px;
+			}
+		}
+		.tree_box{
+			overflow: auto;
+			position: relative;
+			max-height: 666px;
+			>span{
+				float: left;
+				min-width: 100%;
+			}
+			.tree_li{
+				position:      relative;
+				padding-left:  $PADDING;
+				padding-right: 64px;
+				margin:        2px 0;
+				&.hover{
+					transition:box-shadow 0.2s ease;
+					background-color: $HoverBgColor;
+					background-position: fixed;
+					background-attachment: fixed;
+					background-color: $HoverBgColor;
+					color:            $HoverfontColor !important;
+					box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),0 4px 15px 0 rgba(0,0,0,0.15);
+				}
+				&.active{
+					background-color: $ActiveBgColor;
+					color:            $ActivefontColor !important;
+				}
+				&.active,&.hover{
+					.tree_label{
+						color:inherit;
+						.icon{
+							color:inherit;
+						}
+					}
+				}
+				.controlls{
+					position:    absolute;
+					margin-left: 20px;
+					top:         12px;
+				}
+				.icon{
+					font-size:      $IconSize;
+					padding-right:  $PADDING;
+					line-height:    22px;
+					vertical-align: middle;
+					&.none{
+						@include opacity(0);
+					}
+				}
+				.tree_label{
+					display:        inline-block;
+					padding:        .8em 0;
+					line-height:    22px;
+					.node_name{
+						line-height:    inherit;
+						vertical-align: middle;
+					}
+					
+				}
+			}
+		}
+		
+	}
+}
