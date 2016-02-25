@@ -4,7 +4,7 @@
 * @Description:        
 * @Email:              chenxuezhong@360.cn
 * @Last Modified by:   Roy
-* @Last Modified time: 2016-02-01 10:48:53
+* @Last Modified time: 2016-02-24 11:39:18
 */
 
 'use strict';
@@ -12,8 +12,6 @@
 var webpack            = require('webpack');
 var path               = require('path');
 var fs                 = require('fs');
-var extractLinkCSS     = require('extract-text-webpack-plugin');
-var commonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 var UglifyJsPlugin     = webpack.optimize.UglifyJsPlugin; 
 var nodeModulesPath    = path.resolve(process.cwd(), 'node_modules');
 var Library            = 'react-tree';
@@ -31,7 +29,22 @@ var webpackConfig = function (options) {
 			this.module.noParse.push(new RegExp(mPath));
 		},
 		entry:  {
-			index:  "./index.js"
+			tree:  "./components/tree.jsx",
+			// common: chunks
+		},
+		externals: {
+			"react": {
+				root: "react",
+                commonjs2: "react",
+                commonjs: ["./node_modules", "react"],
+                amd: "react"
+			},
+			"react-addons-css-transition-group": {
+				root: "react-addons-css-transition-group",
+                commonjs2: "react-addons-css-transition-group",
+                commonjs: ["./node_modules", "react-addons-css-transition-group"],
+                amd: "react-addons-css-transition-group"
+			}
 		},
 		output:{
 			path: path.resolve( isDebug ? 'build' : 'public' ),
@@ -76,34 +89,20 @@ var webpackConfig = function (options) {
 				},
 				{
 					test:   /\.scss$/,
-					loader: extractLinkCSS.extract('style','css?minimize!sass')	
+					loader: 'css?minimize!sass'
 				}
 			]
 
         },
-        plugins:[
-			// new commonsChunkPlugin({
-			// 	name:'common',
-			// 	filename:"common.js",
-			// 	minChunks:Infinity  //提取所有chunks共同依赖的模块
-			// }),
-			new extractLinkCSS(cssName,{
-				// 当allChunks指定为false时，css loader必须指定怎么处理
-	            // additional chunk所依赖的css，即指定`ExtractTextPlugin.extract()`
-	            // 第一个参数`notExtractLoader`，一般是使用style-loader
-	            // @see https://github.com/webpack/extract-text-webpack-plugin
-				allChunks: false
-			})
-		]
+        plugins:[]
 	};
-	// config.addVendors('react',reactPath);
-	// config.addVendors('reactDOM',reactDOMPath);
+	
 	if (!isDebug){
 		config.plugins.push(new UglifyJsPlugin({
 			mangle: {
 		        except: ['exports', 'require']
 		    }
-		}))
+		}));
 	}
 	return config;
 

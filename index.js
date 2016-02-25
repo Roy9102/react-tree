@@ -1,54 +1,14 @@
 /* 
 * @Author:             Roy
-* @Date:               2015-12-31 14:33:01
+* @Date:               2016-02-23 21:02:01
 * @Description:        
 * @Email:              chenxuezhong@360.cn
 * @Last Modified by:   Roy
-* @Last Modified time: 2016-02-02 18:53:57
+* @Last Modified time: 2016-02-23 21:07:49
 */
 
 'use strict';
 
-require('./src/sass/tree.scss');
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Tree from './components/tree.js';
-import data from './data.json';
-
-/**
- * [treeConfig react-tree配置文件]
- * @type {Object}
- */
-const treeConfig = {
-    expandLevel:     1,
-    initialActiveID: 2153,
-    editable:        true,
-    deletable:       true,
-    multiSelect:     true,
-    initChecked:     [100024,2153],
-    groupIcon:       'icon-sitemap',
-    childIcon:       'icon-desktop_mac',
-    onActive(node){
-        console.log(node.id)
-    },
-    onDelete(node){
-        console.log(node.id)
-    },
-    onEdit(node){
-        console.log(node.id)
-    },
-    afterInster(node){
-        console.log(node.id)
-    }
-};
-
-ReactDOM.render(
-    <Tree title = "终端树" config = {treeConfig}  rawTreeData = {data.data.list} />,
-    document.querySelector('#tree')
-)
-
-
-
-
-
+import Tree from './components/tree.jsx';
+export default Tree;

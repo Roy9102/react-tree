@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "WEBPACK_DEV=true webpack --color --progress --watch",
-    "build": "WEBPACK_DEV=false webpack -p",
+    "demo": "WEBPACK_DEV=true webpack --config webpack.demo.config.js --color --progress",
+    "build": "WEBPACK_DEV=false webpack",
     "test": "test"
   },
   "keywords": [
